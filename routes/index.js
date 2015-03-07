@@ -14,12 +14,17 @@ router.get('/search/:whateverLang', function(req, res){
   // console.log('dummyData::::::::', dummyData);
   // function that searches through dummyData here, then send result.
   for(key in dummyData.programming){
+    console.log('KEY . DOT . DESC',key.desc);
     if(key === searching){
-      // console.log('KEY . DOT . DESC',key.desc);
-      
-      var found = true
+      console.log('DUMMYYYYYYY',dummyData.programming[key]);
+      var found = true;
 
-      res.send(key);
+      var objSend = {
+        key: key,
+        description: dummyData.programming[key].desc,
+      }
+
+      res.send(objSend);
 
     }
   }
